@@ -9,6 +9,7 @@ const $name = $('#name');
 const $weight = $('#weight');
 const $height = $('#height');
 const $poster = $('#poster');
+const $types =$('#types');
 // const $description = $('#description');
 // const $attribute = $('#attribute');
 
@@ -35,6 +36,7 @@ function render(){
    $name.html(pokeDB.name);
    $weight.html(pokeDB.weight);
    $height.html(pokeDB.height);
+   $types.html(pokeDB.types.map((type) => type.type.name).join(', '));
   //$description.html(pokeDB.description);
   $poster.attr("src", pokeDB.sprites['front_default']);
 
