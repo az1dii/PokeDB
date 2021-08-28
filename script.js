@@ -1,35 +1,46 @@
-let weatherData;
 
-const $location = $("#location");
-const $temp = $("#temp");
-const $feels = $("#feels");
-const $icon = $("#icon");
+let pokeDB;
+//https://pokeapi.co/api/v2/pokemon/${name}
+
 const $input = $('input[type="text"]');
-const $description = $("#description");
 
-function handleGetData(event) {
+// const $pokemon= $('#pokemon');
+const $name = $('#name');
+const $weight = $('#weight');
+const $height = $('#height');
+const $poster = $('#poster');
+// const $description = $('#description');
+// const $attribute = $('#attribute');
+
+function fetch(event){
   event.preventDefault();
 
   $.ajax({
-    url: `https://pokeapi.co/api/v2/pokemon?limit=151%27`
+    url: `https://pokeapi.co/api/v2/pokemon/${$input.val()}`
   }).then(
-    function fetchPokemon() {
-      fetch("https://pokeapi.co/api/v2pokemon?limit151")
-        .then((response) => response.json())
-        .then((allpokemon) => console.log(allpokemon));
+    function(data){
+        console.log(data);
+        pokeDB = data;
+        render();  // call render function
+        // $input.value() clear text in search box
     },
-    function (error) {
-      console.log("Pokemon Not Found", error);
+    function(error){
+      console.log("Pokemon Not Found", error)
     }
-  );
+  )
 }
 
-function render() {
-  $location.html(weatherData.name);
-  $temp.html(weatherData.main.temp);
-  $feels.html(weatherData.main.feels_like);
-  $description.html(weatherData.weather[0].description);
-  $icon.attr("src", weatherData.weather[0].icon);
+
+function render(){
+   $name.html(pokeDB.name);
+   $weight.html(pokeDB.weight);
+   $height.html(pokeDB.height);
+  //$description.html(pokeDB.description);
+  $poster.attr("src", pokeDB.sprites['front_default']);
+
+
 }
 
-$("form").on("submit", handleGetData);
+
+
+$('form').on('submit', fetch);
