@@ -1,35 +1,40 @@
-
-let pokeDB;
 //https://pokeapi.co/api/v2/pokemon/${name}
+let pokeDB
+
 
 const $input = $('input[type="text"]');
 
-// const $pokemon= $('#pokemon');
+const $card = $('#card');
 const $name = $('#name');
+const $container = $('#container');
 const $weight = $('#weight');
 const $height = $('#height');
 const $poster = $('#poster');
 const $types =$('#types');
-// const $description = $('#description');
-// const $attribute = $('#attribute');
+const $id =$('#id');
+const $stats=$('#stats');
 
-// // types colors
-// const colors = {
-// 	fire: "#FDDFDF",
-// 	grass: "#DEFDE0",
-// 	electric: "#FCF7DE",
-// 	water: "#DEF3FD",
-// 	ground: "#f4e7da",
-// 	rock: "#d5d5d4",
-// 	fairy: "#fceaff",
-// 	poison: "#98d7a5",
-// 	bug: "#f8d5a3",
-// 	dragon: "#97b3e6",
-// 	psychic: "#eaeda1",
-// 	flying: "#F5F5F5",
-// 	fighting: "#E6E0D4",
-// 	normal: "#F5F5F5",
-// };
+
+const typeColors = {
+  electric: '#FFEA70',
+  normal: '#B09398',
+  fire: '#FF675C',
+  water: '#0596C7',
+  ice: '#AFEAFD',
+  rock: '#999799',
+  flying: '#7AE7C7',
+  grass: '#4A9681',
+  psychic: '#FFC6D9',
+  ghost: '#561D25',
+  bug: '#A2FAA3',
+  poison: '#795663',
+  ground: '#D2B074',
+  dragon: '#DA627D',
+  steel: '#1D8A99',
+  fighting: '#2F2F2F',
+  default: '#2A1A1F',
+};
+
 
 function fetch(event){
   event.preventDefault();
@@ -49,18 +54,24 @@ function fetch(event){
   )
 }
 
+const color = typeColors[$types];
 
 function render(){
    $name.html(pokeDB.name);
    $weight.html(pokeDB.weight);
    $height.html(pokeDB.height);
    $types.html(pokeDB.types.map((type) => type.type.name).join(', '));
-  //$description.html(pokeDB.description);
-  $poster.attr("src", pokeDB.sprites['front_default']);
+   $poster.attr("src", pokeDB.sprites['front_default']);
+   $id.html(pokeDB.id);
+
+
+   
+  
+   
   
 
-
 }
+
 
 
 

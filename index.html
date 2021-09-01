@@ -9,27 +9,29 @@
     <script defer src="./script.js"></script>
     <title>Pokemon Data Base</title>
 </head>
-<body>
-    <main>
-    <h1>Poke DB</h1>
-    <p id="pokemon"></p>
-    <p>Name:</p>
-    <p id="name"></p>
-    <p>Attribute:</p>
-    <p id="types"></p>
-    <p>Weight:</p>
-    <p id="weight"></p>
-    <p>Height:</p>
-    <p id="height"></p>
-    <p>Description:</p>
-    <p id="description"></p>
-    <img src="" id="poster">
-<form>
-    <input type="text" value="">
-    <input type="submit" value="🔘">
 
-</form>
-</main>
+<body>
+    <!-- <style>
+        body{background-image: url('https://static.tumblr.com/bfd42c6e12c4a48a0630ca3b0fcd1d15/vt0qhql/KSbnz4jg0/tumblr_static_tumblr_static_filename_focused_v3.jpg');
+        }
+    </style>
+
+    <img class="pokeimg" src="https://assets.change.org/photos/5/ka/he/QhKAhesgwIcUrSZ-800x450-noPad.jpg?1560307369" alt="PokeDB"> -->
+    
+    <form>
+        <form action="" onsubmit="fetch(event)">
+            <input type="text" name="pokemon" autocomplete="off">
+    </form>
+
+    <div card class="pokecard">
+        <div name>Pokedex</div>
+        <div container class="container">
+            <img poster ="poster" src=""/>
+        </div>
+        <div id></div>
+        <div types class="types"></div>
+        <div stats class="stats"></div>
+    </div>
 
 </body>
 </html>
