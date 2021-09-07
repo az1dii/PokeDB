@@ -1,7 +1,7 @@
 ## **Pokemon Data Base**
 
   This web app contains Gen 1 to Gen 8 pokemon informations.
-  Input a pokemon number or name to pull informations.
+  Input a pokemon number or name to pull.
   
   
   
